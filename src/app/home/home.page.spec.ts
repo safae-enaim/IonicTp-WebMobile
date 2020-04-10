@@ -3,6 +3,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
 import {Camera} from '@ionic-native/camera/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 
 
 describe('HomePage', () => {
@@ -13,7 +15,8 @@ describe('HomePage', () => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
       imports: [IonicModule.forRoot()]
-      providers: [Camera]
+      providers: [Camera,Geolocation]
+
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);
