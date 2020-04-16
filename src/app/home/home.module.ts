@@ -8,6 +8,8 @@ import { HomePage } from './home.page';
 import {LoginService} from '../services/login.service';
 import {Camera} from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 
 @NgModule({
@@ -23,6 +25,6 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
     ])
   ],
   declarations: [HomePage],
-  providers: [LoginService, Camera ,Geolocation]
+  providers: [LoginService, Camera ,Geolocation, LocalNotifications]
 })
 export class HomePageModule {}

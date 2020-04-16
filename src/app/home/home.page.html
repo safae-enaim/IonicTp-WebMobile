@@ -41,30 +41,46 @@
         <ion-label>Card Button Item 1 activated</ion-label>
       </ion-item>
 
-      <ion-item>
+      <ion-item routerLink="/previewcamera">
         <ion-icon name="walk" slot="start"></ion-icon>
-        <ion-label>Card Button Item 2</ion-label>
+        <ion-label>Camera Preview </ion-label>
       </ion-item>
     </ion-card>
     <ion-card *ngIf="imgData">
 <img [src]="imgData">
 
     </ion-card>
+    <ion-toolbar>
+      <ion-title>
+        Notification
+      </ion-title>
+    </ion-toolbar>
+    <ion-button (click)="single_notification()" class="ion-activated">
+      Single Notification
+    </ion-button>
+
+    <ion-button (click)="multi_notification()" class="ion-activated">
+      Multi Notifcations
+    </ion-button>
+
+    <ion-button (click)="delayed_notification()" class="ion-activated">
+      Delayed Notification
+    </ion-button>
 
     <ion-toolbar>
       <ion-title>
-        Blank Geolocation
+         Geolocation
       </ion-title>
     </ion-toolbar>
 
 
-      <ion-list>
+
+    <ion-list>
 
         <ion-item *ngFor="let location of locationTraces">
           <ion-label class="ion-text-wrap">
             <ion-label>Time: {{location.timestamp | date:'M/d/yy, h:mm a'}}</ion-label>
             <ion-label>Latitude: {{location.latitude}} Longitude: {{location.longitude}}</ion-label>
-            <ion-label>Accuracy: {{location.accuracy}}</ion-label>
           </ion-label>
         </ion-item>
 

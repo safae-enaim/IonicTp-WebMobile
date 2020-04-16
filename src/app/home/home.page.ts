@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {AlertController} from '@ionic/angular';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 
 
 @Component({
@@ -18,7 +20,7 @@ export class HomePage {
    locationTraces = [];
 
 
-  constructor(private alertController: AlertController, private camera: Camera, private geolocation: Geolocation) {}
+  constructor(private alertController: AlertController, private camera: Camera, private geolocation: Geolocation,private localNotifications: LocalNotifications) {}
 
   updateTitle() {
     this.title = 'Mon Nouveau Titre';
@@ -66,7 +68,6 @@ export class HomePage {
           this.locationTraces.push({
             latitude:resp.coords.latitude,
             longitude:resp.coords.latitude,
-            accuracy:resp.coords.accuracy,
             timestamp:resp.timestamp
           });
 
@@ -81,9 +82,49 @@ export class HomePage {
           this.locationTraces.push({
             latitude:resp.coords.latitude,
             longitude:resp.coords.latitude,
-            accuracy:resp.coords.accuracy,
             timestamp:resp.timestamp
           });
 
         });
-   }   }
+   }
+   single_notification() {
+       // Schedule a single notification
+       this.localNotifications.schedule({
+         id: 1,
+         text: 'Single ILocalNotification',
+         data: { secret: 'secret' }
+       });
+     }
+
+
+     multi_notification() {
+       // Schedule multiple notifications
+       this.localNotifications.schedule([{
+         id: 1,
+         text: 'Multi ILocalNotification 1',
+         sound: 'file://sound.mp3',
+         data: { secret: 'key_data' }
+       }, {
+         id: 2,
+         title: 'Local ILocalNotification Example',
+         text: 'Multi ILocalNotification 2',
+         icon: 'http://example.com/icon.png'
+       }]);
+     }
+
+
+
+     delayed_notification() {
+       // Schedule delayed notification
+       this.localNotifications.schedule({
+         text: 'Delayed ILocalNotification',
+         trigger: { at: new Date(new Date().getTime() + 3600) },
+         led: 'FF0000',
+         sound: null
+       });
+     }
+
+
+
+
+   }
