@@ -15,7 +15,7 @@ describe('HomePage', () => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
       imports: [IonicModule.forRoot()]
-      providers: [Camera,Geolocation]
+      providers: [Camera,Geolocation,CameraPreview]
 
     }).compileComponents();
 
