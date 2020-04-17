@@ -4,6 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
 import {Camera} from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { CameraPreview } from '@ionic-native/camera-preview/ngx';
+
 
 
 
