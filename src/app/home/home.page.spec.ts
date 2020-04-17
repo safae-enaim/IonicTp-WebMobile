@@ -6,8 +6,7 @@ import {Camera} from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { CameraPreview } from '@ionic-native/camera-preview/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
-
-
+import { RouterTestingModule } from '@angular/router/testing';
 
 
 
@@ -18,7 +17,7 @@ describe('HomePage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ HomePage ],
-      imports: [IonicModule.forRoot()],
+      imports: [IonicModule.forRoot(),RouterTestingModule],
       providers: [Camera,Geolocation,CameraPreview,LocalNotifications]
 
     }).compileComponents();
